@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Full Nam e and Nickname</title>
+</head>
+<body>
+     <!-- <form action=""> -->
+        <label for="userName"> Name: </label>
+        <input type="text" name="name" id="userName">
+        <br>
+        <label for="lastName">Last name: </label>
+        <input type="text" name="lastname" id="lastName">
+        <br>
+        <button id="button">Generate</button>
+        <p id="fullName"></p>
+        <p id="nickname"></p>
+     <!-- </form> -->
+        <script>
+
+                // console.log("Mi nombre es " + completeName + ", pero prefiero que me digas " + nickname + ".");
+            const inputUserName = document.getElementById("userName");
+            const inputLastName = document.getElementById("lastName");
+            const userFullName = document.getElementById("fullName");
+            const userNickname= document.getElementById("nickname");
+            const button = document.getElementById("button");
+
+            button.addEventListener('click', printFullNameAndNickName)
+
+                function getFullName(name, lastname) {
+                    if(name && lastname){
+                        let completeName = name + " " + lastname;
+                        return completeName;
+                    } else {
+                        return false;
+                    }
+                }
+
+                function getNickname(name, lastname) {
+                    if(name && lastname){
+                        let nickname = name + lastname[0];
+                        return nickname;
+                    } else {
+                        return false;
+                    }
+                }
+                function printFullNameAndNickName() {
+                    let userName = inputUserName.value;
+                    let lastName = inputLastName.value;
+
+                    let fullName = getFullName(userName, lastName);
+                    let nickname = getNickname(userName, lastName);
+                    if  (fullName && nickname) {  
+                        userFullName.innerHTML = "Your full name is: " + fullName;
+                        userNickname.innerHTML = "Your nickname is: " + nickname;
+
+                        console.log(fullName)
+                        console.log(nickname);
+                    } else {
+                        console.log("You must to write your name and lastname");
+                        }
+                }
+        </script>
+</body>
+</html>
