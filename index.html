@@ -28,7 +28,7 @@
             const button = document.getElementById("button");
 
             button.addEventListener('click', printFullNameAndNickName)
-
+            // Get Fullname
                 function getFullName(name, lastname) {
                     if(name && lastname){
                         let completeName = name + " " + lastname;
@@ -37,15 +37,26 @@
                         return false;
                     }
                 }
-
+                // Get Nickname
                 function getNickname(name, lastname) {
                     if(name && lastname){
-                        let nickname = name + lastname[0];
-                        return nickname;
+                        //  Verify if the user has wrote more than one lastname
+                        let tempLastName = lastname.trim().split(" ");
+                        let firtstLastName = tempLastName[0];
+                        let secondLastName = tempLastName[1];
+
+                        if (tempLastName.length > 1 && secondLastName.length >= 1) {
+                                let nickname = name + firtstLastName[0] + secondLastName[0];
+                                return nickname;
+                        } else {
+                            let nickname = name + lastname[0] + lastname[1];
+                            return nickname;
+                        }
                     } else {
                         return false;
                     }
                 }
+                // Print both
                 function printFullNameAndNickName() {
                     let userName = inputUserName.value;
                     let lastName = inputLastName.value;
