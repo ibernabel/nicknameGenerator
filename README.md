@@ -1,2 +1,2 @@
-# nickNameGenerator
-A simple script for practice that you can get the full name of person when introduce the name and lastname in a input text field.
+# nicknameGenerator
+A simple program tha give you several nickname when introduce the name and lastname in a input text field.
