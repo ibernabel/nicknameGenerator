@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Full Nam e and Nickname</title>
+    <title>Nickname Generator</title>
 </head>
 <body>
      <!-- <form action=""> -->
         <label for="userName"> Name: </label>
         <input type="text" name="name" id="userName">
+        <br>
+        <span id="alertName"></span>
         <br>
         <label for="lastName">Last name: </label>
         <input type="text" name="lastname" id="lastName">
@@ -18,61 +20,6 @@
         <p id="fullName"></p>
         <p id="nickname"></p>
      <!-- </form> -->
-        <script>
-
-                // console.log("Mi nombre es " + completeName + ", pero prefiero que me digas " + nickname + ".");
-            const inputUserName = document.getElementById("userName");
-            const inputLastName = document.getElementById("lastName");
-            const userFullName = document.getElementById("fullName");
-            const userNickname= document.getElementById("nickname");
-            const button = document.getElementById("button");
-
-            button.addEventListener('click', printFullNameAndNickName)
-            // Get Fullname
-                function getFullName(name, lastname) {
-                    if(name && lastname){
-                        let completeName = name + " " + lastname;
-                        return completeName;
-                    } else {
-                        return false;
-                    }
-                }
-                // Get Nickname
-                function getNickname(name, lastname) {
-                    if(name && lastname){
-                        //  Verify if the user has wrote more than one lastname
-                        let tempLastName = lastname.trim().split(" ");
-                        let firtstLastName = tempLastName[0];
-                        let secondLastName = tempLastName[1];
-
-                        if (tempLastName.length > 1 && secondLastName.length >= 1) {
-                                let nickname = name + firtstLastName[0] + secondLastName[0];
-                                return nickname;
-                        } else {
-                            let nickname = name + lastname[0] + lastname[1];
-                            return nickname;
-                        }
-                    } else {
-                        return false;
-                    }
-                }
-                // Print both
-                function printFullNameAndNickName() {
-                    let userName = inputUserName.value;
-                    let lastName = inputLastName.value;
-
-                    let fullName = getFullName(userName, lastName);
-                    let nickname = getNickname(userName, lastName);
-                    if  (fullName && nickname) {  
-                        userFullName.innerHTML = "Your full name is: " + fullName;
-                        userNickname.innerHTML = "Your nickname is: " + nickname;
-
-                        console.log(fullName)
-                        console.log(nickname);
-                    } else {
-                        console.log("You must to write your name and lastname");
-                        }
-                }
-        </script>
+        <script src="./index.js"></script>
 </body>
 </html>
